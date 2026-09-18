@@ -10,6 +10,14 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/pulso-urbano-n01',
+        destination: '/pulso-urbano-n01.html',
+      },
+    ];
+  },
 };
 
 export default nextConfig;
