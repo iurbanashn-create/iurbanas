@@ -16,6 +16,10 @@ const nextConfig: NextConfig = {
         source: '/pulso-urbano-n01',
         destination: '/pulso-urbano-n01.html',
       },
+      {
+        source: '/pulso-urbano-n02',
+        destination: '/pulso-urbano-n02.html',
+      },
     ];
   },
 };
