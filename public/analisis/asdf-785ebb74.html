@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Análisis Regulatorio · Proyecto de Ley para la Gestión Integral de Residuos (Honduras)</title>
+<style>
+  :root{
+    --navy:#0D2B45;
+    --navy-soft:#1B3E5C;
+    --teal:#0B7A75;
+    --gold:#C9A84C;
+    --paper:#FCFBF8;
+    --rule:#DCD8CE;
+    --ink:#1C1C1A;
+    --muted:#5E6470;
+    --rojo:#A6321E;
+    --ambar:#B8862B;
+    --verde:#2F6B4F;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:#EDEAE3;
+    color:var(--ink);
+    font-family:"Jost","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:16px;
+    line-height:1.62;
+  }
+  .sheet{
+    max-width:860px;
+    margin:32px auto 64px;
+    background:var(--paper);
+    padding:0 0 56px;
+    box-shadow:0 2px 24px rgba(13,43,69,.14);
+  }
+  .masthead{
+    background:var(--navy);
+    color:#fff;
+    padding:34px 48px 30px;
+  }
+  .brand{
+    font-family:"Courier Prime","Courier New",monospace;
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .masthead h1{
+    font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+    font-weight:600;
+    font-size:34px;
+    line-height:1.18;
+    margin:14px 0 10px;
+  }
+  .masthead .kicker{
+    font-size:15px;
+    color:#C8D4DF;
+    margin:0;
+    max-width:62ch;
+  }
+  .metabar{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0 34px;
+    border-top:1px solid rgba(201,168,76,.35);
+    margin-top:24px;
+    padding-top:16px;
+    font-family:"Courier Prime","Courier New",monospace;
+    font-size:11px;
+    letter-spacing:.06em;
+    color:#9FB3C4;
+  }
+  .metabar b{color:#fff;font-weight:400}
+  main{padding:0 48px}
+  section{padding-top:38px}
+  h2{
+    font-family:"Cormorant Garamond",Georgia,serif;
+    font-size:25px;
+    font-weight:600;
+    color:var(--navy);
+    margin:0 0 6px;
+    padding-bottom:8px;
+    border-bottom:2px solid var(--gold);
+  }
+  h3{
+    font-size:15px;
+    letter-spacing:.02em;
+    color:var(--navy);
+    margin:26px 0 6px;
+  }
+  .eyebrow{
+    font-family:"Courier Prime","Courier New",monospace;
+    font-size:10.5px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin:0 0 4px;
+  }
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:20px}
+  li{margin-bottom:6px}
+  .lede{font-size:17.5px;line-height:1.6;color:var(--navy-soft)}
+  .art{
+    font-family:"Courier Prime","Courier New",monospace;
+    font-size:12px;
+    color:var(--teal);
+    white-space:nowrap;
+  }
+  table{border-collapse:collapse;width:100%;font-size:14px;margin:14px 0 18px}
+  th{
+    text-align:left;
+    background:var(--navy);
+    color:#fff;
+    font-weight:500;
+    font-size:11.5px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    padding:9px 10px;
+  }
+  td{border-bottom:1px solid var(--rule);padding:9px 10px;vertical-align:top}
+  tbody tr:nth-child(even){background:rgba(13,43,69,.028)}
+  .dot{
+    display:inline-block;width:9px;height:9px;border-radius:50%;
+    margin-right:6px;vertical-align:middle;
+  }
+  .alto{background:var(--rojo)} .medio{background:var(--ambar)} .bajo{background:var(--verde)}
+  .lvl{font-weight:600;font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+  .lvl.a{color:var(--rojo)} .lvl.m{color:var(--ambar)} .lvl.b{color:var(--verde)}
+  .callout{
+    border-left:3px solid var(--teal);
+    background:rgba(11,122,117,.06);
+    padding:14px 18px;
+    margin:18px 0;
+    font-size:14.5px;
+  }
+  .warn{
+    border-left:3px solid var(--rojo);
+    background:rgba(166,50,30,.05);
+    padding:14px 18px;
+    margin:18px 0;
+    font-size:14.5px;
+  }
+  .ciudadano{
+    border:1px solid var(--gold);
+    background:rgba(201,168,76,.07);
+    padding:18px 20px;
+    margin:22px 0;
+  }
+  .ciudadano h3{margin-top:0;color:var(--navy)}
+  .rank{
+    border-top:1px solid var(--rule);
+    padding:18px 0 4px;
+  }
+  .rank:first-of-type{border-top:none}
+  .rank .num{
+    font-family:"Cormorant Garamond",Georgia,serif;
+    font-size:30px;
+    color:var(--gold);
+    line-height:1;
+    margin-right:10px;
+    vertical-align:-2px;
+  }
+  .rank h3{display:inline;font-size:17px}
+  .tl{list-style:none;padding-left:0;margin:16px 0}
+  .tl li{
+    display:grid;
+    grid-template-columns:132px 1fr;
+    gap:14px;
+    padding:9px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .tl .when{
+    font-family:"Courier Prime","Courier New",monospace;
+    font-size:12px;
+    color:var(--navy);
+    font-weight:700;
+  }
+  .check{list-style:none;padding-left:0}
+  .check li{padding-left:24px;position:relative}
+  .check li::before{
+    content:"□";
+    position:absolute;left:0;top:-1px;
+    color:var(--teal);font-size:16px;
+  }
+  footer{
+    margin:46px 48px 0;
+    padding-top:18px;
+    border-top:1px solid var(--rule);
+    font-size:12.5px;
+    color:var(--muted);
+  }
+  .noprint{margin:24px 48px 0;text-align:right}
+  button{
+    font-family:inherit;font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    background:var(--navy);color:#fff;border:0;padding:10px 18px;cursor:pointer;
+  }
+  button:hover{background:var(--teal)}
+  button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  @media (max-width:640px){
+    .sheet{margin:0}
+    .masthead{padding:26px 22px}
+    .masthead h1{font-size:26px}
+    main{padding:0 22px}
+    footer,.noprint{margin-left:22px;margin-right:22px}
+    table{font-size:13px}
+    .tl li{grid-template-columns:1fr}
+  }
+  @media print{
+    body{background:#fff}
+    .sheet{box-shadow:none;margin:0;max-width:none}
+    .noprint{display:none}
+    section{page-break-inside:auto}
+    h2{page-break-after:avoid}
+    table,.callout,.warn,.ciudadano,.rank{page-break-inside:avoid}
+    a{color:inherit;text-decoration:none}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+  <div class="brand">Lex Intelligence · Programa de Inteligencia Normativa</div>
+  <h1>Quién paga la basura: lectura empresarial del proyecto de Ley para la Gestión Integral de Residuos</h1>
+  <p class="kicker">El proyecto remitido por el Poder Ejecutivo traslada el costo del residuo desde la municipalidad hacia quien pone el producto en el mercado. Este informe identifica qué obligaciones nacen, qué sectores absorben el mayor impacto y dónde queda la ventana de incidencia.</p>
+  <div class="metabar">
+    <span>DOCUMENTO <b>Proyecto de Decreto No. XX (2026)</b></span>
+    <span>ORIGEN <b>SERNA — Poder Ejecutivo</b></span>
+    <span>EXTENSIÓN <b>9 títulos · 87 artículos</b></span>
+    <span>ESTADO <b>Anteproyecto — no vigente</b></span>
+  </div>
+</header>
+
+<main>
+
+<div class="warn" style="margin-top:30px">
+  <strong>Advertencia de estatus.</strong> El texto analizado es una <em>propuesta</em>: conserva el encabezado “Decreto No. XX”, el espacio de fecha en blanco y errores de numeración propios de un borrador de trabajo. <strong>Hoy no genera obligación alguna.</strong> Su valor para una empresa es de anticipación: permite calcular el costo antes de que el costo sea exigible, y participar mientras el texto todavía se puede modificar.
+</div>
+
+<section>
+  <p class="eyebrow">Resumen ejecutivo</p>
+  <h2>La tesis en una frase</h2>
+  <p class="lede">La ley no reorganiza la recolección de basura: reasigna quién la financia. Hasta hoy el costo del residuo lo absorbe la municipalidad —y, en la práctica, el vecino. El proyecto crea tres canales nuevos de traslado de ese costo al sector privado.</p>
+  <ol>
+    <li><strong>Responsabilidad Extendida del Productor (REP).</strong> Productores, importadores, comercializadores y distribuidores pasan a ser responsables de <em>organizar y financiar</em> la gestión de los residuos de sus productos durante todo el ciclo de vida, incluidas las fases post-industrial y post-consumo. <span class="art">Arts. 4.10, 23, 61</span></li>
+    <li><strong>Costo del generador.</strong> Todo generador —doméstico, comercial, industrial o institucional— asume el costo de la gestión integral de lo que genera, y debe separar en origen. <span class="art">Arts. 25, 26, 36</span></li>
+    <li><strong>Responsabilidad ambiental por el sitio.</strong> La obligación de remediar sitios contaminados se vuelve exigible incluso frente a daños originados en el pasado, y alcanza al propietario o poseedor aunque no sea el causante. <span class="art">Arts. 48, 49</span></li>
+  </ol>
+  <p>Alrededor de esos tres ejes se monta un aparato de control: un registro obligatorio (RENAGERS), un sistema de reporte de información, licenciamiento ambiental para actividades de gestión, y un régimen sancionatorio con multas de hasta cien salarios mínimos y clausura definitiva.</p>
+  <div class="callout">
+    <strong>El punto que suele pasarse por alto:</strong> la ley fija la <em>arquitectura</em>, pero delega al reglamento lo que determina el costo real —qué categorías de producto entran al régimen REP, con qué metas y en qué plazos <span class="art">Art. 23</span>, qué corrientes de residuos son “de manejo especial” <span class="art">Art. 60</span> y qué plásticos se restringen o prohíben <span class="art">Art. 63</span>. La discusión económica de fondo no ocurrirá en el Congreso: ocurrirá en SERNA, dentro de los seis meses posteriores a la vigencia <span class="art">Art. 87</span>.
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Capa 1 · Qué cambia</p>
+  <h2>Doce obligaciones nuevas para el sector privado</h2>
+  <table>
+    <thead><tr><th style="width:26%">Obligación</th><th style="width:14%">Base</th><th style="width:30%">A quién alcanza</th><th>Naturaleza del costo</th></tr></thead>
+    <tbody>
+      <tr><td>Inscripción en el RENAGERS</td><td class="art">Arts. 22, 31</td><td>Todo generador de residuos de manejo especial o peligrosos, gestores y transportistas, <em>haya o no</em> licencia ambiental</td><td>Administrativo; condiciona el acceso a incentivos fiscales</td></tr>
+      <tr><td>Separación en el lugar de origen</td><td class="art">Art. 25</td><td>Todo generador, público o privado</td><td>Contenedores, señalización, procedimiento y capacitación</td></tr>
+      <tr><td>Asunción del costo de gestión</td><td class="art">Art. 26</td><td>Generadores urbanos, de manejo especial y peligrosos</td><td>Gasto operativo recurrente</td></tr>
+      <tr><td>Programas de reducción, reciclaje o compostaje</td><td class="art">Art. 36</td><td>Establecimientos comerciales, industriales e institucionales</td><td>Programa formalizado y evidencia documental</td></tr>
+      <tr><td>Planes posconsumo bajo el régimen REP</td><td class="art">Arts. 23, 61</td><td>Productores, importadores, comercializadores, distribuidores</td><td><strong>Línea de costo estructural nueva</strong>; requiere aprobación de SERNA</td></tr>
+      <tr><td>Contratación de gestores autorizados</td><td class="art">Arts. 16, 37</td><td>Generadores de residuos peligrosos y de manejo especial</td><td>Debida diligencia de proveedores: la responsabilidad <em>no se transfiere</em> al tercero</td></tr>
+      <tr><td>Reporte al Sistema de Información GIR</td><td class="art">Arts. 7.4, 10.6, 37</td><td>Gestores y generadores de peligrosos</td><td>Reporte periódico de volúmenes y trazabilidad</td></tr>
+      <tr><td>Segregación física del almacenamiento</td><td class="art">Arts. 27, 28</td><td>Industria, salud, agro, retail con peligrosos</td><td>Rediseño de bodegas; prohibido almacenar peligrosos junto a producto o materia prima</td></tr>
+      <tr><td>Transporte exclusivo de peligrosos</td><td class="art">Arts. 30, 31</td><td>Transportistas y flotas propias</td><td>Unidades dedicadas: no se comparte carga</td></tr>
+      <tr><td>Plásticos de un solo uso y resina reciclada</td><td class="art">Art. 63</td><td>Fabricantes, importadores, comercializadores, HORECA</td><td>Meta 2030: 15 % de resina reciclada <em>nacional</em>; EPS restringible o prohibible</td></tr>
+      <tr><td>Remediación de pasivos y transferencia de inmuebles</td><td class="art">Arts. 48–50, 79.12</td><td>Propietarios, poseedores, desarrolladores, banca acreedora</td><td>Contingencia patrimonial; transferir un inmueble contaminado sin remediar es infracción grave</td></tr>
+      <tr><td>Licencia ambiental para actividades de gestión</td><td class="art">Arts. 20, 21, 41</td><td>Recicladores, centros de acopio, plantas de tratamiento</td><td>Trámite ante DECA con apoyo técnico de la nueva DGR</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <p class="eyebrow">Capa 2 · Semáforo sectorial</p>
+  <h2>Impacto por sector</h2>
+  <p>Clasificación sobre los once sectores canónicos de seguimiento de Lex Intelligence. El nivel mide la magnitud del costo nuevo y su inmediatez, no la severidad ambiental del sector.</p>
+  <table>
+    <thead><tr><th style="width:4%"></th><th style="width:27%">Sector</th><th style="width:12%">Impacto</th><th>Vector principal</th></tr></thead>
+    <tbody>
+      <tr><td><span class="dot alto"></span></td><td>Comercio y Servicios</td><td class="lvl a">Alto</td><td>Importadores y distribuidores quedan en el centro del régimen REP; empaques, bolsas, exhibición; tasa municipal de aseo con facturación conjunta <span class="art">Arts. 4.10, 19, 23</span></td></tr>
+      <tr><td><span class="dot alto"></span></td><td>Hostelería, Alimentos y Turismo</td><td class="lvl a">Alto</td><td>Plásticos de un solo uso y poliestireno expandido; residuos orgánicos y desperdicio de alimentos; envases <span class="art">Arts. 9.10, 63</span></td></tr>
+      <tr><td><span class="dot alto"></span></td><td>Energía e Industria</td><td class="lvl a">Alto</td><td>Residuos industriales y peligrosos, pasivos ambientales, coprocesamiento en hornos cementeros como oportunidad regulada <span class="art">Arts. 43, 44, 48</span></td></tr>
+      <tr><td><span class="dot alto"></span></td><td>Agroindustria y Agroquímicos</td><td class="lvl a">Alto</td><td>Envases de insumos agrícolas y plaguicidas COPs; prohibición de quema a cielo abierto; planes posconsumo <span class="art">Arts. 5.27, 39, 42, 79.9</span></td></tr>
+      <tr><td><span class="dot alto"></span></td><td>Inmobiliaria y Construcción</td><td class="lvl a">Alto</td><td>Residuos de construcción y demolición; contaminación del suelo transferible con el inmueble <span class="art">Arts. 5.30, 49, 79.12</span></td></tr>
+      <tr><td><span class="dot alto"></span></td><td>Tecnología y Electrónica</td><td class="lvl a">Alto</td><td>RAEE con reglamento propio; posible restricción a importar productos sin capacidad nacional de tratamiento <span class="art">Arts. 2.9, 40</span></td></tr>
+      <tr><td><span class="dot alto"></span></td><td>Automotriz, Logística y Transporte</td><td class="lvl a">Alto</td><td>Baterías plomo-ácido, aceites usados y llantas; unidades exclusivas para peligrosos; inscripción obligatoria <span class="art">Arts. 30, 31, 42</span></td></tr>
+      <tr><td><span class="dot alto"></span></td><td>Farmacéutica y Salud</td><td class="lvl a">Alto</td><td>Residuos peligrosos de establecimientos de salud bajo vigilancia de SESAL; medicamentos vencidos; envases en contacto con peligrosos <span class="art">Arts. 8, 15.c, 26, 42</span></td></tr>
+      <tr><td><span class="dot medio"></span></td><td>Cosméticos y Cuidado Personal</td><td class="lvl m">Medio</td><td>Envases plásticos y aerosoles dentro del alcance REP; expuesto a la meta de resina reciclada <span class="art">Arts. 23, 63</span></td></tr>
+      <tr><td><span class="dot medio"></span></td><td>Banca y Seguros</td><td class="lvl m">Medio</td><td>Impacto indirecto pero patrimonial: garantías inmobiliarias con pasivo ambiental, riesgo de adjudicación de predios contaminados, nueva línea de financiamiento verde <span class="art">Arts. 49, 55</span></td></tr>
+      <tr><td><span class="dot medio"></span></td><td>Corporativo, Legal y Cumplimiento</td><td class="lvl m">Medio</td><td>Demanda de servicio: debida diligencia ambiental en M&amp;A, cláusulas de pasivos, programas de cumplimiento, defensa en procedimiento sancionador <span class="art">Arts. 48, 83, 84</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <p class="eyebrow">Capa 3 · Dónde duele más</p>
+  <h2>Los cinco perfiles de mayor exposición</h2>
+  <p>Si una empresa reúne dos o más de los rasgos siguientes, el proyecto la alcanza de forma estructural y no marginal.</p>
+
+  <div class="rank">
+    <span class="num">1</span><h3>Quien pone producto empacado en el mercado hondureño</h3>
+    <p>Es el perfil más expuesto y atraviesa varios sectores: alimentos y bebidas, retail, farmacia, cosméticos, ferretería, electrónica. El régimen REP los hace responsables de <em>financiar</em> la recuperación de sus envases y productos al final de su vida útil <span class="art">Art. 4.10</span>, con planes posconsumo aprobados por SERNA <span class="art">Art. 61</span>. En los países de la región este esquema se traduce en una tarifa por tonelada puesta en el mercado, individual o a través de un sistema colectivo.</p>
+    <p><strong>Qué hacer:</strong> inventariar toneladas de empaque colocadas al año por material; ese número es la base de cálculo de cualquier tarifa futura. Quien no lo tenga negociará a ciegas.</p>
+  </div>
+
+  <div class="rank">
+    <span class="num">2</span><h3>Quien depende de plástico de un solo uso o EPS</h3>
+    <p>Restaurantes, comida rápida, delivery, empaque para llevar, envasadores de bebidas, convertidores de plástico. El artículo 63 habilita restricciones y prohibiciones por reglamento y fija una meta nacional de 15 % de resina reciclada <em>generada en territorio nacional</em> al 2030. El poliestireno expandido queda expresamente marcado para restricción progresiva.</p>
+    <p><strong>Qué hacer:</strong> costear hoy la sustitución de EPS y evaluar la oferta local real de resina reciclada. Si esa oferta no existe a escala, la meta es un problema de abastecimiento antes que de cumplimiento —y es un argumento técnico legítimo para la fase reglamentaria.</p>
+  </div>
+
+  <div class="rank">
+    <span class="num">3</span><h3>Quien genera, transporta o almacena residuos peligrosos</h3>
+    <p>Industria, agro, salud, talleres, laboratorios, energía. Convergen cuatro obligaciones: registro <span class="art">Art. 22</span>, almacenamiento segregado con prohibición absoluta de convivencia con producto o materia prima <span class="art">Art. 28</span>, transporte en unidades exclusivas <span class="art">Art. 30</span> y contratación de gestores autorizados con responsabilidad que <em>subsiste</em> aunque se delegue <span class="art">Art. 16</span>. Las conductas asociadas están tipificadas como infracciones graves <span class="art">Art. 79</span>.</p>
+    <p><strong>Qué hacer:</strong> auditar al proveedor de disposición final. Si el gestor contratado no está autorizado o dispone en sitio no habilitado, la sanción llega al generador.</p>
+  </div>
+
+  <div class="rank">
+    <span class="num">4</span><h3>Quien es dueño de suelo industrial o lo recibe en garantía</h3>
+    <p>Desarrolladores, industrias con planteles antiguos, arrendadores, bancos con garantías hipotecarias y fondos que compran activos. El artículo 49 responsabiliza al propietario o poseedor del predio contaminado <em>aunque no sea el causante</em>, dejándole solo la acción de repetición. El artículo 79.12 convierte en infracción grave transferir un inmueble contaminado sin haber cumplido las medidas de remediación.</p>
+    <p><strong>Qué hacer:</strong> incorporar estudio de pasivos ambientales a la debida diligencia de toda compraventa, arrendamiento de largo plazo y toma de garantía. Y revisar los contratos vigentes: hoy la mayoría no asigna este riesgo.</p>
+  </div>
+
+  <div class="rank">
+    <span class="num">5</span><h3>Quien importa bienes cuyos residuos el país no sabe tratar</h3>
+    <p>Electrónica, línea blanca, baterías, llantas, equipo médico. El artículo 2.9 fija como objetivo <em>regular la importación</em> de productos cuyos materiales no tengan capacidad instalada nacional de tratamiento y disposición final. Es la disposición con mayor potencial de convertirse en barrera de acceso al mercado, y hoy carece de criterios, umbrales y procedimiento.</p>
+    <p><strong>Qué hacer:</strong> es el punto donde una observación técnica al articulado rinde más que cualquier gestión posterior.</p>
+  </div>
+
+  <h3>Tres actores que no se ven a sí mismos como sujetos obligados —y lo son</h3>
+  <ul>
+    <li><strong>Centros educativos privados:</strong> obligados a establecer e implementar planes de manejo de residuos en sus instalaciones. <span class="art">Art. 65</span></li>
+    <li><strong>Proveedores del Estado:</strong> las compras públicas incorporarán criterios de sostenibilidad y contenido reciclado o compostable, coordinados con la ONCAE. Cambia la ficha técnica de las licitaciones. <span class="art">Art. 53</span></li>
+    <li><strong>Empresas de servicios y oficinas corporativas:</strong> el artículo 36 alcanza a los establecimientos “institucionales”, no solo a los industriales.</li>
+  </ul>
+</section>
+
+<section>
+  <p class="eyebrow">La otra cara</p>
+  <h2>Dónde se abre negocio</h2>
+  <p>El proyecto no es únicamente carga. Crea demanda regulada y financiada.</p>
+  <ul>
+    <li><strong>Incentivos fiscales temporales</strong> para proyectos nuevos o ampliaciones en infraestructura, tratamiento y valorización: exoneración del impuesto sobre ventas en compras locales de maquinaria, exoneración arancelaria a la importación de equipo y beneficios parciales de ISR y activo neto por hasta cinco años. Condicionados a registro en RENAGERS y a metas verificables. <span class="art">Arts. 73, 74</span></li>
+    <li><strong>Fondo GIR</strong> con aporte anual de cien millones de lempiras de la SEFIN, que financia proyectos de municipalidades, gestores autorizados y sus delegados, con prioridad al aprovechamiento de orgánicos. Es la puerta de entrada al mercado municipal. <span class="art">Arts. 55, 56, 57</span></li>
+    <li><strong>Cierre técnico de botaderos y rellenos sanitarios:</strong> obligatorios en cuatro años para municipios A y B y en seis para C y D, tratados como proyectos públicos con asistencia técnica del ente rector. Ingeniería, operación, mancomunidades. <span class="art">Arts. 46, 85</span></li>
+    <li><strong>Captura y aprovechamiento de biogás</strong> obligatoria en rellenos municipales o mancomunados: puerta a proyectos de energía y a mercados de carbono. <span class="art">Art. 46.6</span></li>
+    <li><strong>Coprocesamiento en hornos cementeros</strong> con reglamento propio: valorización energética de residuos como sustituto de combustible fósil. <span class="art">Arts. 43, 44</span></li>
+    <li><strong>Etiquetado y certificación de economía circular</strong> con el Organismo Hondureño de Normalización: diferenciación comercial verificable. <span class="art">Art. 54</span></li>
+  </ul>
+</section>
+
+<section>
+  <p class="eyebrow">Riesgo</p>
+  <h2>El régimen sancionatorio</h2>
+  <table>
+    <thead><tr><th style="width:22%">Categoría</th><th style="width:30%">Multa (salarios mínimos, escala más alta)</th><th>Ejemplos del articulado</th></tr></thead>
+    <tbody>
+      <tr><td>Leve <span class="art">Art. 77</span></td><td>De ¼ a 3</td><td>No registrarse como generador o gestor; obstaculizar una inspección; incumplir cualquier disposición de la ley o sus reglamentos</td></tr>
+      <tr><td>Menos grave <span class="art">Art. 78</span></td><td>De 3 a 10 (primera reincidencia); de 10 a 50 (reincidencias posteriores)</td><td>Reincidencia en cualquier infracción leve</td></tr>
+      <tr><td>Grave <span class="art">Art. 79</span></td><td>De 50 a 100</td><td>Disposición de peligrosos en sitio no autorizado; mezcla de peligrosos; información falsa o incompleta a la autoridad; vertido de lixiviados; transferencia de inmueble contaminado sin remediar</td></tr>
+    </tbody>
+  </table>
+  <div class="warn">
+    <strong>Agravante para personas jurídicas.</strong> Cuando la infractora es una persona jurídica, la multa <em>no puede ser inferior a la mitad del máximo</em> previsto para el nivel <span class="art">Art. 81.1</span>. En la práctica, una infracción grave cometida por una empresa arranca en 50 salarios mínimos de la escala más alta y no baja de ahí. <em>Cálculo derivado, no extraído: la cuantía en lempiras depende de la escala salarial vigente al momento de la sanción y debe verificarse contra el acuerdo de salario mínimo aplicable.</em>
+  </div>
+  <p>La multa no es el riesgo principal. El artículo 72 habilita además <strong>clausura definitiva total o parcial</strong>, aislamiento del área, suspensión o revocación de licencias y registros, <strong>cancelación de beneficios fiscales ya concedidos</strong>, indemnización al Estado o a terceros y decomiso de productos. Para una operación con licencia ambiental o con exoneraciones vigentes, ese catálogo pesa más que cualquier monto.</p>
+</section>
+
+<section>
+  <p class="eyebrow">Calidad normativa</p>
+  <h2>Diez observaciones al texto —y la agenda de incidencia</h2>
+  <p>Hallazgos de lectura técnica. Los primeros cuatro son puntos de fondo con consecuencia económica o litigiosa; los últimos, defectos formales que conviene corregir antes del dictamen.</p>
+  <ol>
+    <li><strong>Retroactividad ambigua en pasivos ambientales.</strong> El artículo 48 declara la remediación exigible “independientemente del momento en que se hayan originado” los daños y en la misma frase invoca el principio de no retroactividad. La contradicción es interna y será el primer frente de litigio. Requiere una regla de transición explícita.</li>
+    <li><strong>Tipo sancionador abierto.</strong> El artículo 77.2 tipifica como infracción “incumplir las disposiciones establecidas en la presente Ley, sus reglamentos y demás normativa aplicable”. Convierte cualquier incumplimiento —presente o futuro, legal o reglamentario— en conducta sancionable, con tensión frente al principio de tipicidad. Y como la reincidencia en falta leve escala a menos grave <span class="art">Art. 78</span>, la ruta de un descuido administrativo a una multa de cincuenta salarios es corta.</li>
+    <li><strong>Delegación del contenido económico.</strong> Categorías y metas REP, listado de corrientes de residuos y régimen de plásticos se remiten íntegramente al reglamento <span class="art">Arts. 23, 60, 63</span>. El Congreso aprobaría una estructura sin conocer su costo. Conviene fijar en la ley al menos criterios, techos y gradualidad.</li>
+    <li><strong>Meta de resina reciclada condicionada a oferta inexistente.</strong> El 15 % debe ser resina <em>generada en territorio nacional</em> <span class="art">Art. 63</span>. Sin capacidad instalada suficiente, la meta es de cumplimiento materialmente imposible. Debería atarse a una verificación previa de disponibilidad o admitir resina regional.</li>
+    <li><strong>Incentivos fiscales sin mecanismo.</strong> Los artículos 51, 73 y 74 conceden exoneraciones sin remitirse al régimen vigente de exoneraciones ni definir el rol de SEFIN y del SAR. Tal como están, son inaplicables hasta que se armonicen.</li>
+    <li><strong>El sancionador financia al sancionador.</strong> Las multas capitalizan el Fondo GIR, administrado por la misma SERNA que impone las sanciones <span class="art">Arts. 57.3, 82</span>. Conviene separar la recaudación de la potestad sancionadora.</li>
+    <li><strong>Sin confidencialidad de la información reportada.</strong> El Sistema de Información GIR recibirá volúmenes de producción y de residuos —información comercialmente sensible— sin ninguna regla de reserva ni de uso. Vacío relevante para cualquier industria con competidores en el mercado local.</li>
+    <li><strong>Sin cláusula derogatoria ni régimen transitorio para el sector privado.</strong> El único transitorio <span class="art">Art. 85</span> es para municipios. No hay plazo para inscribirse en el RENAGERS ni para presentar planes posconsumo, y la ley entra en vigencia con su publicación, sin <em>vacatio legis</em>, aunque el reglamento tarde seis meses. Además, al no derogar expresamente nada, obliga a un ejercicio de compatibilización con la Ley General del Ambiente y con la reglamentación de residuos sólidos vigente.</li>
+    <li><strong>Inconsistencias de denominación.</strong> El artículo 6 define la sigla <em>CIGIR</em> (“Comisión Interinstitucional para la Gestión de Residuos”) pero los artículos 13 y 14 crean la <em>CIGIRS</em>. El mismo artículo 6 define la <em>DGR</em> como “Dirección de Gestión de Residuos” y el artículo 11 la crea como “Dirección General de Gestión de Residuos”. Son entidades que emitirán actos administrativos: el nombre importa.</li>
+    <li><strong>Defectos de estructura.</strong> Hay dos artículos numerados 86 y dos numerados 87 al cierre del Título IX. En el Título VI se pasa del Capítulo I al Capítulo III sin Capítulo II. Ambos afectan la citación futura del articulado.</li>
+  </ol>
+  <div class="callout">
+    <strong>Dónde incidir y cuándo.</strong> Existen dos ventanas y son sucesivas. La primera es el <em>dictamen de comisión</em> en el Congreso Nacional, donde caben observaciones al articulado —especialmente a los puntos 1 a 4. La segunda, más decisiva para el costo, es la <em>elaboración del reglamento general</em> por SERNA en los seis meses siguientes a la vigencia <span class="art">Art. 87</span>, junto con el reglamento específico de REP y el de plásticos. Una posición gremial técnica, con datos de toneladas y de costo, pesa mucho más en la segunda que en la primera.
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Cronología</p>
+  <h2>Qué ocurre y cuándo, si el texto se aprueba sin cambios</h2>
+  <ul class="tl">
+    <li><span class="when">Publicación</span><span>Entrada en vigencia inmediata, sin plazo de adaptación. <span class="art">Art. 87</span></span></li>
+    <li><span class="when">+ 6 meses</span><span>Reglamento general de SERNA. En el mismo plazo, cada municipalidad reglamenta el servicio y el ordenamiento urbano aplicable a residuos. <span class="art">Art. 87</span></span></li>
+    <li><span class="when">+ 12 meses</span><span>Plan Nacional de Gestión Integral de Residuos formulado y aprobado. <span class="art">Art. 58</span></span></li>
+    <li><span class="when">+ 24 meses</span><span>Planes Directores Municipales implementados <span class="art">Art. 59</span>; contenidos de gestión de residuos incorporados a la currícula nacional. <span class="art">Art. 64</span></span></li>
+    <li><span class="when">+ 4 años</span><span>Uso obligatorio de relleno sanitario en municipios categoría A y B. <span class="art">Art. 85</span></span></li>
+    <li><span class="when">+ 6 años</span><span>Uso obligatorio de relleno sanitario en municipios categoría C y D. <span class="art">Art. 85</span></span></li>
+    <li><span class="when">2030</span><span>15 % de resina reciclada nacional en los productos plásticos regulados. <span class="art">Art. 63</span></span></li>
+  </ul>
+</section>
+
+<section>
+  <p class="eyebrow">Acción</p>
+  <h2>Los próximos noventa días</h2>
+  <p>Ninguna de estas tareas requiere que la ley esté aprobada. Todas mejoran la posición negociadora si lo está.</p>
+  <ul class="check">
+    <li><strong>Cuantificar el empaque.</strong> Toneladas anuales colocadas en el mercado, por material. Es la base de cualquier tarifa REP.</li>
+    <li><strong>Levantar el inventario de residuos.</strong> Clasificar lo generado en urbanos, de manejo especial y peligrosos, con volúmenes y destino actual.</li>
+    <li><strong>Auditar al gestor.</strong> Verificar autorizaciones, capacidad instalada y sitio de disposición final del proveedor. La responsabilidad no se delega.</li>
+    <li><strong>Revisar bodegas.</strong> Comprobar que no haya peligrosos conviviendo con producto o materia prima.</li>
+    <li><strong>Mapear pasivos del suelo.</strong> Planteles antiguos, tanques, áreas de descarga histórica. Antes de vender, arrendar o hipotecar.</li>
+    <li><strong>Revisar contratos.</strong> Asignación del riesgo ambiental en compraventas, arrendamientos y garantías vigentes.</li>
+    <li><strong>Evaluar sustitución de EPS y plásticos de un solo uso,</strong> con costo y proveedor alternativo identificados.</li>
+    <li><strong>Costear la ventana de incentivos.</strong> Si hay inversión en tratamiento o valorización prevista, ubicarla dentro del régimen de los artículos 73 y 74.</li>
+    <li><strong>Definir posición gremial.</strong> Observaciones técnicas al articulado y, sobre todo, preparación para la fase reglamentaria.</li>
+  </ul>
+</section>
+
+<div class="ciudadano">
+  <h3>¿Cómo se convierte esto en ley?</h3>
+  <p>Un proyecto enviado por el Poder Ejecutivo llega a la Secretaría del Congreso Nacional y se traslada a la comisión legislativa correspondiente —en este caso, la de ambiente—. Esa comisión emite un <strong>dictamen</strong>, que puede ser favorable, favorable con modificaciones o desfavorable. El pleno lo discute y lo aprueba en tres debates. Aprobado, pasa al Presidente de la República, que lo sanciona o lo veta. Sancionado, se publica en el Diario Oficial <em>La Gaceta</em> y hasta ese momento no obliga a nadie.</p>
+  <p>Después viene la parte que casi nadie sigue y que decide el costo: <strong>el reglamento</strong>. La ley da a SERNA seis meses para escribirlo, y es ahí donde se define qué productos entran, con qué metas y con qué plazos. Una empresa que solo se entera cuando la norma ya salió publicada llega tarde dos veces.</p>
+</div>
+
+<section>
+  <p class="eyebrow">Metodología</p>
+  <h2>Alcance y límites de este análisis</h2>
+  <p>El informe se elabora exclusivamente sobre el texto del proyecto remitido, aplicando los estándares de análisis de Lex Intelligence: lectura estratégica en tres capas —qué dice, qué significa, qué hacer—, semáforo sobre los once sectores canónicos de seguimiento y redacción bajo los principios de escritura ciudadana.</p>
+  <ul>
+    <li>Se distingue entre <strong>dato extraído</strong> del articulado y <strong>conclusión derivada</strong> del analista. Las cuantías de multa en lempiras son derivadas y quedan sujetas a la escala salarial vigente.</li>
+    <li>No se infieren contenidos que el texto remite al reglamento: donde el proyecto delega, este informe lo señala como delegación, no como obligación determinada.</li>
+    <li>El estatus legislativo del proyecto —comisión asignada, avance de dictamen, agenda del pleno— debe confirmarse con el monitoreo del Congreso Nacional a la fecha de lectura.</li>
+    <li>Este documento es análisis regulatorio de carácter informativo y no constituye asesoría legal para un caso concreto.</li>
+  </ul>
+</section>
+
+</main>
+
+<div class="noprint"><button onclick="window.print()">Imprimir o guardar en PDF</button></div>
+
+<footer>
+  <strong>Lex Intelligence &amp; Compliance</strong> · Programa de Inteligencia Normativa · San Pedro Sula, Honduras<br>
+  Análisis regulatorio del Proyecto de Ley para la Gestión Integral de Residuos remitido por el Poder Ejecutivo · Agosto de 2026<br>
+  operaciones@lex-intelligence.tech
+</footer>
+
+</div>
+</body>
+</html>
